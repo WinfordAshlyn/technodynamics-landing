@@ -30,6 +30,7 @@ const {
       border-radius: 100px;
       width: 286px;
       border: 1px solid transparent;
+      box-sizing: border-box;
     }
 
     .contained {
@@ -39,21 +40,25 @@ const {
     }
 
     .contained:hover {
-      background: linear-gradient(90deg, #3d80ff 0%, #003dbe 100%);
+      background: #4639fe;
     }
 
     .outlined {
       color: var(--text-color-accent-blue);
       background:
+        linear-gradient(#000f26b2, #000f26b2) padding-box,
         linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
         linear-gradient(90deg, #3d80ff 0%, #003dbe 100%) border-box;
     }
 
     .outlined:hover {
+      color: var(--text-color-accent-blue-hover);
+      padding: 11px 0;
+      border-width: 2px;
       background:
+        linear-gradient(#000f26b2, #000f26b2) padding-box,
         linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
         linear-gradient(90deg, #3d80ff 0%, #003dbe 100%) border-box;
-      filter: brightness(1.1);
     }
   </style>
 </button>
