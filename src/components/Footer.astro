@@ -4,7 +4,8 @@
 
 <footer class="footer">
   <div class="footer__top">
-    <div class="footer__logo" aria-label="Технодинамика"></div>
+    <a href="#" class="footer__logo" data-scroll-top aria-label="Технодинамика"
+    ></a>
     <div class="footer__columns">
       <div class="footer__column">
         <h3 class="footer__title">Контакты</h3>
@@ -20,6 +21,8 @@
                 class="footer__contact-icon"
                 width="20"
                 height="20"
+                loading="lazy"
+                decoding="async"
               />
               <span>KolgatovIV@tdhc.ru</span>
             </a>
@@ -32,6 +35,8 @@
                 class="footer__contact-icon"
                 width="20"
                 height="20"
+                loading="lazy"
+                decoding="async"
               />
               <span>+7 (916) 944-88-80</span>
             </a>
@@ -65,7 +70,7 @@
   </div>
   <style>
     .footer {
-      margin: 0 -80px;
+      margin: 200px -80px 0px;
       border-top: 1px solid transparent;
       border-image: linear-gradient(
           90deg,
@@ -83,11 +88,16 @@
     }
 
     .footer__logo {
+      display: block;
       width: 205px;
       height: 38px;
       background-color: #90a1b9;
       mask: url("/logo.svg") center / contain no-repeat;
       -webkit-mask: url("/logo.svg") center / contain no-repeat;
+    }
+
+    .footer__logo:hover {
+      text-decoration: none;
     }
 
     .footer__columns {

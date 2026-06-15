@@ -8,7 +8,7 @@ const { icon, name } = Astro.props;
 ---
 
 <div class="card">
-  <img src={icon} alt="" />
+  <img src={icon} alt="" loading="lazy" decoding="async" />
   <span class="name">{name}</span>
   <style>
     .card {

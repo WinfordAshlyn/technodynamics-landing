@@ -3,7 +3,14 @@
 ---
 
 <header class="header">
-  <img src="./logo.svg" alt="Logo" />
+  <a
+    href="#"
+    class="header__logo-link"
+    data-scroll-top
+    aria-label="Технодинамика"
+  >
+    <img src="./logo.svg" alt="" class="header__logo" />
+  </a>
   <nav>
     <ul class="nav">
       <li><a href="#accessToData">Решения</a></li>
@@ -28,8 +35,35 @@
     margin: 0 -80px;
   }
 
+  .header__logo-link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .header__logo-link:hover {
+    text-decoration: none;
+  }
+
+  .header__logo {
+    display: block;
+  }
+
   .nav {
     display: flex;
     gap: 20px;
   }
 </style>
+
+<script>
+  document.querySelectorAll("[data-scroll-top]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}`,
+      );
+      window.scrollTo({ top: 0 });
+    });
+  });
+</script>

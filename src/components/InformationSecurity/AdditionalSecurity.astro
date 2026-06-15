@@ -25,7 +25,7 @@ const cards = [
 
 <div class="container">
   <header class="header">
-    <img src="/icons/avrora.svg" alt="" class="image" />
+    <img src="/icons/avrora.svg" alt="" class="image" loading="lazy" decoding="async" />
     <div class="text-container">
       <h3 class="title">
         Дополнительная безопасность<br /><span class="color-gradient-blue"
@@ -43,7 +43,7 @@ const cards = [
     {
       cards.map(({ icon, name, text }) => (
         <article class="card">
-          <img src={icon} alt="" class="card__icon" />
+          <img src={icon} alt="" class="card__icon" loading="lazy" decoding="async" />
           <div class="card__textContainer">
             <h4 class="card__title ">{name}</h4>
             <p class="card__text">{text}</p>

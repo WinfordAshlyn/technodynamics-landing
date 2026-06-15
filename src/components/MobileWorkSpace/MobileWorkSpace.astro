@@ -101,6 +101,8 @@ const tabs = [
                         src={tab.icon[pointIndex]}
                         alt=""
                         class="point__image"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <span class="point__text">{point}</span>
@@ -109,7 +111,13 @@ const tabs = [
               </ul>
             </div>
             <div class="right-column">
-              <img src={tab.image} alt="" class="workspace-image" />
+              <img
+                src={tab.image}
+                alt=""
+                class="workspace-image"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         ))
@@ -117,7 +125,13 @@ const tabs = [
     </div>
 
     <div class="background-image-container">
-      <img src="/images/background.jpg" alt="" class="background-image" />
+      <img
+        src="/images/background.jpg"
+        alt=""
+        class="background-image"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   </div>
 
