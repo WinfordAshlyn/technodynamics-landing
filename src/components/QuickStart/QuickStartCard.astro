@@ -1,0 +1,107 @@
+---
+interface CardProps {
+  icon: string;
+  title: string;
+  points: string[];
+}
+const { icon, title, points } = Astro.props as CardProps;
+---
+
+<div class="card">
+  <div class="text-container">
+    <h4 class="title">{title}</h4>
+    <ul class="card__list">
+      {
+        points.map((point) => {
+          return <li class="point">{point}</li>;
+        })
+      }
+    </ul>
+  </div>
+  <div class="image-container">
+    <img src={icon} alt="" />
+  </div>
+
+  <style>
+    .card {
+      position: relative;
+      display: flex;
+      width: 100%;
+      padding-top: 60px;
+      padding-inline: 50px;
+      border-top: 1px solid transparent;
+      border-image: linear-gradient(
+          90deg,
+          #3b82f600 0%,
+          #3b82f680 50%,
+          #3b82f600 100%
+        )
+        1;
+    }
+
+    .text-container {
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+    }
+
+    .title {
+      text-align: center;
+      color: var(--text-color-accent-blue);
+    }
+
+    .card__list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 8px;
+    }
+
+    .image-container {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      right: 50%;
+      transform: translate(50%, -50%);
+      border: 1px solid transparent;
+      background:
+        linear-gradient(180deg, #09154566 40%, #010619 100%) padding-box,
+        linear-gradient(#010619, #010619) padding-box,
+        linear-gradient(
+            90deg,
+            #0036a8 0%,
+            #001020 14.29%,
+            #0052ff 28.57%,
+            #769fff 42.86%,
+            #0c41b4 57.14%,
+            #0052ff 71.43%,
+            #0649d8 85.71%,
+            #0c41b4 100%
+          )
+          border-box;
+      border-radius: 50%;
+    }
+
+    .point::before {
+      content: "";
+      flex: 0 0 4px;
+      width: 4px;
+      height: 4px;
+      background-color: var(--text-color-accent-blue);
+      border-radius: 50%;
+    }
+
+    .point {
+      display: flex;
+      align-items: center;
+      column-gap: 16px;
+      color: var(--text-color-secondary);
+      font-size: 14px;
+      line-height: 1.3;
+    }
+  </style>
+</div>

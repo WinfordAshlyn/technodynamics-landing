@@ -1,0 +1,143 @@
+---
+
+---
+
+<div class="container">
+  <div class="left-column">
+    <h3 class="title">
+      <span class="color-gradient-blue">Мобильная платформа</span><br
+      />подключается к вашей<br />СЭД без разработки<br />с нуля
+    </h3>
+    <p class="text">
+      МП СЭД — готовое коробочное решение для работы с документами и задачами.
+      Интегрируется с любой российской системой электронного документооборота:
+      1С, Directum, DocsVision, ТЕЗИС и другими.
+    </p>
+    <div class="banner">
+      <img src="/icons/guard.svg" alt="" />
+      <p class="banner__text">
+        Готовая мобильная платформа корпоративного уровня на ОС «Аврора»
+        корпоративного уровня
+      </p>
+    </div>
+  </div>
+
+  <div class="right-column">
+    <div class="companies-column">
+      <img src="/images/accessToData/eos.png" alt="EOS" />
+      <img src="/images/accessToData/docvision.png" alt="DocsVision" />
+      <img src="/images/accessToData/tesis.png" alt="ТЕЗИС" />
+      <img src="/images/accessToData/1c.png" alt="1С" />
+      <img src="/images/accessToData/directum.png" alt="Directum" />
+    </div>
+    <img src="/icons/setka.svg" alt="" class="setka-image" />
+    <img src="/images/accessToData/phone.png" alt="" class="phone-image" />
+  </div>
+
+  <style>
+    .container {
+      display: flex;
+      width: 100%;
+      height: 532px;
+      column-gap: 80px;
+      justify-content: space-between;
+      padding-top: 100px;
+      border-top: 1px solid transparent;
+      border-image: linear-gradient(
+          90deg,
+          #3b82f600 0%,
+          #3b82f680 50%,
+          #3b82f600 100%
+        )
+        1;
+    }
+
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .text {
+      color: var(--text-color-secondary);
+      line-height: 1.3;
+      margin-bottom: 65px;
+    }
+
+    .banner {
+      display: flex;
+      width: 100%;
+      column-gap: 20px;
+      border: 1px solid transparent;
+      padding: 20px;
+      border-radius: 20px;
+      background:
+        linear-gradient(180deg, #09154566 40%, #010619 100%) padding-box,
+        linear-gradient(#010619, #010619) padding-box,
+        linear-gradient(
+            90deg,
+            #0036a8 0%,
+            #001020 14.29%,
+            #0052ff 28.57%,
+            #769fff 42.86%,
+            #0c41b4 57.14%,
+            #0052ff 71.43%,
+            #0649d8 85.71%,
+            #0c41b4 100%
+          )
+          border-box;
+    }
+
+    .banner__text {
+      font-size: 18px;
+      line-height: 1.3;
+      color: var(--text-color-accent-blue);
+    }
+
+    .left-column {
+      flex: 0 0 538px;
+      width: 538px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .right-column {
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .companies-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      align-self: center;
+      row-gap: 32px;
+    }
+
+    .companies-column img {
+      flex: 0 0 auto;
+      width: auto;
+      height: auto;
+      max-width: none;
+    }
+
+    .companies-column img:last-child {
+      transform: translateY(-6px);
+    }
+
+    .phone-image {
+      display: block;
+      position: relative;
+      transform: scale(1.2);
+      left: -17px;
+      margin-left: 32px;
+    }
+
+    .setka-image {
+      max-height: 281px;
+      align-self: center;
+      margin-left: 32px;
+    }
+  </style>
+</div>

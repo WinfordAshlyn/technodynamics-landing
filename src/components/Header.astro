@@ -2,7 +2,34 @@
 
 ---
 
-
-<header>
-  HEADER
+<header class="header">
+  <img src="./logo.svg" alt="Logo" />
+  <nav>
+    <ul class="nav">
+      <li><a href="#accessToData">Решения</a></li>
+      <li><a href="#workSpace">Рабочее пространство</a></li>
+      <li><a href="#informationSecurity">Безопасность</a></li>
+      <li><a href="#quickStart">Легкий старт</a></li>
+    </ul>
+  </nav>
 </header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: var(--header-height);
+    padding: 20px 40px;
+    background-color: var(--bg-color);
+    margin: 0 -80px;
+  }
+
+  .nav {
+    display: flex;
+    gap: 20px;
+  }
+</style>

@@ -1,0 +1,41 @@
+---
+interface CardProps {
+  icon: string;
+  name: string;
+}
+
+const { icon, name } = Astro.props;
+---
+
+<div class="card">
+  <img src={icon} alt="" />
+  <span class="name">{name}</span>
+  <style>
+    .card {
+      display: flex;
+      column-gap: 16px;
+      min-width: 169px;
+      border-radius: 8px;
+      padding: 20px 12px;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-color-accent-blue);
+      border: 1px solid transparent;
+      background:
+        linear-gradient(180deg, #09154566 40%, #010619 100%) padding-box,
+        linear-gradient(#010619, #010619) padding-box,
+        linear-gradient(
+            90deg,
+            #0036a8 0%,
+            #001020 14.29%,
+            #0052ff 28.57%,
+            #769fff 42.86%,
+            #0c41b4 57.14%,
+            #0052ff 71.43%,
+            #0649d8 85.71%,
+            #0c41b4 100%
+          )
+          border-box;
+    }
+  </style>
+</div>

@@ -1,13 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import Hero from '../components/Hero.astro'
-
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero/Hero.astro";
+import AccessToDataSection from "../components/AccessToDataSection/AccessToDataSection.astro";
+import MobileWorkSpace from "../components/MobileWorkSpace/MobileWorkSpace.astro";
+import InformationSecurity from "../components/InformationSecurity/InformationSecurity.astro";
+import QuickStart from "../components/QuickStart/QuickStart.astro";
 ---
 
 <Layout>
-	<Header />
-	<Hero />
-	<Footer />
+  <Header />
+  <main>
+    <Hero />
+    <AccessToDataSection />
+    <MobileWorkSpace />
+    <InformationSecurity />
+    <QuickStart />
+    <Footer />
+  </main>
 </Layout>

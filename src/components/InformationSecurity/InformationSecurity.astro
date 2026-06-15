@@ -1,0 +1,94 @@
+---
+import InformationSecurityCard from "./InformationSecurityCard.astro";
+import AdditionalSecurity from "./AdditionalSecurity.astro";
+
+const cards = [
+  {
+    title: "ЭП и защита документов",
+    image: "/images/informationSecurityCards/pen.png",
+    points: [
+      "Поддержка ЭП по ГОСТ 34.10-2012 (КриптоПро DSS/HSM)",
+      "Шифрование данных при передаче и в офлайн-режиме",
+      "Индивидуальные токены Рутокен",
+    ],
+  },
+  {
+    title: "Контроль доступа",
+    image: "/images/informationSecurityCards/print.png",
+    points: [
+      "Двухфакторная авторизация",
+      "Ролевая модель доступа",
+      "Авторизация через Active Directory",
+    ],
+  },
+  {
+    title: "Криптозащита",
+    image: "/images/informationSecurityCards/lock.jpg",
+    points: [
+      "Подключение через «Континент-АП» и ViPNet",
+      "Защита от несанкционированных изменений после подписания",
+      "Шифрование конфиденциальных документов",
+    ],
+  },
+];
+---
+
+<section class="section">
+  <h2 class="title" id="informationSecurity">
+    Разработано с учетом требований<br /><span class="color-gradient-blue"
+      >информационной безопасности</span
+    >
+  </h2>
+
+  <p class="text">
+    Полная готовность к эксплуатации в закрытых контурах с повышенными<br />
+    требованиями к безопасности информации предприятий и государственных<br />
+    организаций.
+  </p>
+
+  <ul class="cardsList">
+    {
+      cards.map(({ title, image, points }) => {
+        return (
+          <li>
+            <InformationSecurityCard
+              title={title}
+              image={image}
+              points={points}
+            />
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  <AdditionalSecurity />
+
+  <style>
+    .title {
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .text {
+      color: var(--text-color-secondary);
+      text-align: center;
+      line-height: 1.3;
+      margin-bottom: 120px;
+    }
+
+    .cardsList {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      gap: 12px;
+    }
+
+    .cardsList > li {
+      display: flex;
+      flex: 1 1 0;
+      min-width: 0;
+    }
+  </style>
+</section>

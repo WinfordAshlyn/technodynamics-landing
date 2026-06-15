@@ -1,0 +1,381 @@
+---
+const tabs = [
+  {
+    name: "Весь документооборот",
+    image: "/images/mobileWorkSpace/tab1.png",
+    title: "Привычная работа с документами — теперь на мобильных устройствах",
+    points: [
+      "Работайте с документами и задачами даже без подключения к сети",
+      "Подписывайте электронной подписью",
+      "Работайте с конфиденциальными документами",
+      "Получайте уведомления и не упускайте важное",
+    ],
+    icon: [
+      "/icons/offline.svg",
+      "/icons/signature.svg",
+      "/icons/key.svg",
+      "/icons/notification.svg",
+    ],
+  },
+  {
+    name: "Рабочее пространство",
+    image: "/images/mobileWorkSpace/tab2.png",
+    title: "Гибкие настройки и персонализация под ваши задачи",
+    points: [
+      "Отслеживайте эффективность выполнения задач",
+      "Скрывайте лишнее и задавайте собственный порядок на главном экране",
+      "Просматривайте внутренние нормативные документы",
+    ],
+    icon: ["/icons/chart.svg", "/icons/settings.svg", "/icons/document.svg"],
+  },
+  {
+    name: "Поручения",
+    image: "/images/mobileWorkSpace/tab3.png",
+    title: "Максимум продуктивности – независимо от времени и места",
+    points: [
+      "Ставьте подзадачи и назначайте ответственных",
+      "Просматривайте и отправляйте отчеты на доработку при необходимости",
+      "Отчитывайтесь по вышестоящему поручению, скопировав отчет сотрудника из своего поручения",
+    ],
+    icon: ["/icons/people.svg", "/icons/update.svg", "/icons/docs.svg"],
+  },
+  {
+    name: "Согласования",
+    image: "/images/mobileWorkSpace/tab4.png",
+    title: "Следите за статусом задач и быстро находите нужное",
+    points: [
+      "Используйте навигацию по подзадачам с помощью дерева поручений",
+      "Отслеживайте визы и подписи через дерево согласования",
+    ],
+    icon: ["/icons/algorithm.svg", "/icons/algorithm.svg"],
+  },
+];
+---
+
+<section class="section" data-mobile-workspace>
+  <h2 class="title" id="workSpace">
+    <span class="color-gradient-blue">Мобильное</span> рабочее<br />пространство
+  </h2>
+
+  <div class="container">
+    <header
+      class="tabs-header"
+      role="tablist"
+      aria-label="Мобильное рабочее пространство"
+    >
+      {
+        tabs.map((tab, index) => (
+          <button
+            class:list={["tab-button", { "is-active": index === 0 }]}
+            type="button"
+            role="tab"
+            id={`mobile-workspace-tab-${index}`}
+            aria-selected={index === 0 ? "true" : "false"}
+            aria-controls={`mobile-workspace-panel-${index}`}
+            data-tab-button={String(index)}
+          >
+            {tab.name}
+          </button>
+        ))
+      }
+    </header>
+
+    <div class="panels">
+      {
+        tabs.map((tab, index) => (
+          <div
+            class:list={["content", { "is-active": index === 0 }]}
+            id={`mobile-workspace-panel-${index}`}
+            role="tabpanel"
+            aria-labelledby={`mobile-workspace-tab-${index}`}
+            data-tab-panel={String(index)}
+            hidden={index !== 0}
+          >
+            <div class="left-column">
+              <h3 class="content__title">{tab.title}</h3>
+              <ul class="points-list">
+                {tab.points.map((point, pointIndex) => (
+                  <li class="point">
+                    <div class="image-container">
+                      <img
+                        src={tab.icon[pointIndex]}
+                        alt=""
+                        class="point__image"
+                      />
+                    </div>
+                    <span class="point__text">{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="right-column">
+              <img src={tab.image} alt="" class="workspace-image" />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="background-image-container">
+      <img src="/images/background.jpg" alt="" class="background-image" />
+    </div>
+  </div>
+
+  <script>
+    const workspaces = document.querySelectorAll("[data-mobile-workspace]");
+
+    workspaces.forEach((workspace) => {
+      const buttons = workspace.querySelectorAll("[data-tab-button]");
+      const panels = workspace.querySelectorAll("[data-tab-panel]");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const activeTab = button.getAttribute("data-tab-button");
+
+          buttons.forEach((tabButton) => {
+            const isActive =
+              tabButton.getAttribute("data-tab-button") === activeTab;
+
+            tabButton.classList.toggle("is-active", isActive);
+            tabButton.setAttribute("aria-selected", String(isActive));
+          });
+
+          panels.forEach((panel) => {
+            const isActive = panel.getAttribute("data-tab-panel") === activeTab;
+
+            panel.classList.toggle("is-active", isActive);
+            panel.toggleAttribute("hidden", !isActive);
+          });
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .section {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      row-gap: 100px;
+    }
+
+    .title {
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border: 1px solid transparent;
+      padding-top: 20px;
+      position: relative;
+      background:
+        linear-gradient(180deg, #09154566 40%, #010619 100%) padding-box,
+        linear-gradient(#010619, #010619) padding-box,
+        linear-gradient(
+            90deg,
+            #0036a8 0%,
+            #001020 14.29%,
+            #0052ff 28.57%,
+            #769fff 42.86%,
+            #0c41b4 57.14%,
+            #0052ff 71.43%,
+            #0649d8 85.71%,
+            #0c41b4 100%
+          )
+          border-box;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .tabs-header {
+      display: flex;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      border-bottom: 1px solid transparent;
+      background:
+        linear-gradient(180deg, #09154566 40%, #010619 100%) padding-box,
+        linear-gradient(#010619, #010619) padding-box,
+        linear-gradient(
+            90deg,
+            #0036a8 0%,
+            #001020 14.29%,
+            #0052ff 28.57%,
+            #769fff 42.86%,
+            #0c41b4 57.14%,
+            #0052ff 71.43%,
+            #0649d8 85.71%,
+            #0c41b4 100%
+          )
+          border-box;
+    }
+
+    .background-image-container {
+      position: absolute;
+      bottom: -170px;
+      left: -280px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .background-image-container::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #01061900 0%, #010619 100%);
+    }
+
+    .background-image {
+      display: block;
+      width: auto;
+      max-width: none;
+      height: auto;
+    }
+
+    .tab-button {
+      position: relative;
+      flex: 1 1 0;
+      width: 100%;
+      min-width: fit-content;
+      padding: 14px 48px;
+      border: 0;
+      font-weight: 600;
+      color: #2c6bf2b2;
+      background: transparent;
+      line-height: 1.2;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .tab-button::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0px;
+      left: 0;
+      height: 1px;
+      transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .tab-button.is-active {
+      background: linear-gradient(90deg, #3f8cff 0%, #4639fe 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tab-button.is-active::after {
+      background: linear-gradient(90deg, #3f8cff 0%, #4639fe 100%);
+      box-shadow: 0 -4px 10px 0 #2b7bffb2;
+    }
+
+    .panels {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .content {
+      padding: 40px 40px 100px;
+      display: flex;
+      width: 100%;
+      column-gap: 48px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .content[hidden] {
+      display: none;
+    }
+
+    .point {
+      display: flex;
+      column-gap: 20px;
+      align-items: center;
+    }
+
+    .point__text {
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--text-color-secondary);
+    }
+
+    .points-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+
+    .left-column {
+      padding-top: 50px;
+      max-width: 400px;
+      flex: 0 0 400px;
+      z-index: 1;
+    }
+
+    .content__title {
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 40px;
+    }
+
+    .point__image {
+      width: 40px;
+      height: 40px;
+    }
+
+    .right-column {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .workspace-image {
+      width: min(100%, 680px);
+      height: auto;
+      display: block;
+      object-fit: contain;
+      image-rendering: auto;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      filter: drop-shadow(0 0 0.75px rgba(1, 6, 25, 0.72))
+        drop-shadow(0 24px 44px rgba(0, 0, 0, 0.18));
+      z-index: 1;
+    }
+
+    .image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 72px;
+      width: 72px;
+      min-width: 72px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background:
+        linear-gradient(180deg, #09154566 40%, #010619 100%) padding-box,
+        linear-gradient(#010619, #010619) padding-box,
+        linear-gradient(
+            90deg,
+            #0036a8 0%,
+            #001020 14.29%,
+            #0052ff 28.57%,
+            #769fff 42.86%,
+            #0c41b4 57.14%,
+            #0052ff 71.43%,
+            #0649d8 85.71%,
+            #0c41b4 100%
+          )
+          border-box;
+    }
+  </style>
+</section>

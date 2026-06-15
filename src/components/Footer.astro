@@ -1,6 +1,152 @@
 ---
+
 ---
 
-<footer>
-  FOOTER
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__logo" aria-label="Технодинамика"></div>
+    <div class="footer__columns">
+      <div class="footer__column">
+        <h3 class="footer__title">Контакты</h3>
+        <ul class="footer__links">
+          <li>
+            <a
+              href="mailto:KolgatovIV@tdhc.ru"
+              class="text footer__contact-link"
+            >
+              <img
+                src="/icons/mail.svg"
+                alt=""
+                class="footer__contact-icon"
+                width="20"
+                height="20"
+              />
+              <span>KolgatovIV@tdhc.ru</span>
+            </a>
+          </li>
+          <li>
+            <a href="tel:+79169448880" class="text footer__contact-link">
+              <img
+                src="/icons/telephone.svg"
+                alt=""
+                class="footer__contact-icon"
+                width="20"
+                height="20"
+              />
+              <span>+7 (916) 944-88-80</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__column">
+        <h3 class="footer__title">Продукт</h3>
+        <nav aria-label="Навигация по продукту">
+          <ul class="footer__links">
+            <li><a href="#accessToData" class="text">Решения</a></li>
+            <li><a href="#workSpace" class="text">Рабочее пространство</a></li>
+            <li>
+              <a href="#informationSecurity" class="text">Безопасность</a>
+            </li>
+            <li><a href="#quickStart" class="text">Легкий старт</a></li>
+            <li><a href="" class="text">Документация</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="text weight-500"
+      >© 2026 АО «Технодинамика». Все права защищены.</span
+    >
+    <div class="legal-links">
+      <a href="" class="text weight-500">Политика конфиденциальности</a>
+      <a href="" class="text weight-500">Условия использования</a>
+    </div>
+  </div>
+  <style>
+    .footer {
+      margin: 0 -80px;
+      border-top: 1px solid transparent;
+      border-image: linear-gradient(
+          90deg,
+          #3b82f600 0%,
+          #3b82f680 50%,
+          #3b82f600 100%
+        )
+        1;
+    }
+
+    .footer__top {
+      display: flex;
+      align-items: flex-start;
+      padding: 64px;
+    }
+
+    .footer__logo {
+      width: 205px;
+      height: 38px;
+      background-color: #90a1b9;
+      mask: url("/logo.svg") center / contain no-repeat;
+      -webkit-mask: url("/logo.svg") center / contain no-repeat;
+    }
+
+    .footer__columns {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      column-gap: 150px;
+      margin-left: auto;
+    }
+
+    .footer__title {
+      margin: 0 0 24px;
+      color: var(--text-color-accent-blue);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer__contact-link {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .footer__contact-icon {
+      flex: 0 0 20px;
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+    }
+
+    .footer__bottom {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      border-top: 1px solid #ffffff0d;
+      padding: 35px 64px;
+    }
+
+    .text {
+      color: #90a1b9;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .legal-links {
+      display: flex;
+      column-gap: 40px;
+    }
+
+    .weight-500 {
+      font-weight: 500;
+    }
+  </style>
 </footer>

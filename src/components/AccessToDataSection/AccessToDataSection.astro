@@ -1,0 +1,78 @@
+---
+import WorkRhythm from "./WorkRhythm.astro";
+import MobilePlatform from "./MobilePlatform.astro";
+import Advantage from "./Advantage.astro";
+
+const advanteges = [
+  {
+    id: 1,
+    name: "Без разработки",
+    text: "Готовое коробочное решение для мобильной работы с документами и задачами. Не требуется разработка мобильного приложения с нуля.",
+    image: "/images/advantages/cube.png",
+  },
+  {
+    id: 2,
+    name: "Интеграция с действующей СЭД",
+    text: "Подключение к существующим бизнес-процессам, документам и справочникам без изменений в системе.",
+    image: "/images/advantages/chain.png",
+  },
+  {
+    id: 3,
+    name: "Минимальная нагрузка на ИТ",
+    text: "Внедрение без перестройки инфраструктуры и сложных доработок. Готовые коннекторы и стандартные интеграции.",
+    image: "/images/advantages/server.png",
+  },
+  {
+    id: 4,
+    name: "Быстрый запуск",
+    text: "Пилотный запуск от 2–4 недель. Полное внедрение — в кратчайшие сроки.",
+    image: "/images/advantages/rocket.png",
+  },
+];
+---
+
+<section class="section">
+  <h2 id="accessToData" class="title">
+    Оперативный <span class="color-gradient-blue">доступ к данным</span>
+  </h2>
+
+  <WorkRhythm />
+
+  <MobilePlatform />
+
+  <ul class="advanteges">
+    {
+      advanteges.map(({ name, text, image, id }) => (
+        <li>
+          <Advantage name={name} text={text} image={image} id={id}/>
+        </li>
+      ))
+    }
+  </ul>
+
+  <style>
+    .section {
+      display: flex;
+      flex-direction: column;
+      row-gap: 100px;
+    }
+
+    .title {
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .advanteges {
+      display: flex;
+      align-items: stretch;
+      column-gap: 12px;
+      width: 100%;
+    }
+
+    .advanteges > li {
+      display: flex;
+      flex: 1 1 0;
+      min-width: 0;
+    }
+  </style>
+</section>

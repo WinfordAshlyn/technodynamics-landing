@@ -1,0 +1,132 @@
+---
+import Card from "./HeroFooterCard.astro";
+import Button from "../shared/Button.astro";
+
+const cards = [
+  {
+    name: "ОС Аврора",
+    text: "Отечественная\nмобильная ОС",
+    icon: "/icons/phone.svg",
+  },
+  {
+    name: "Работа в контуре",
+    text: "Безопасность\nданных",
+    icon: "/icons/key.svg",
+  },
+  {
+    name: "Интеграция с СЭД",
+    text: "Подключение\nк вашим системамм",
+    icon: "/icons/chain.svg",
+  },
+  {
+    name: "Офлайн-режим",
+    text: "Доступ к данным\nбез сети",
+    icon: "/icons/offline.svg",
+  },
+  {
+    name: "Защита данных",
+    text: "Современные\nметоды шифрования",
+    icon: "/icons/guard.svg",
+  },
+];
+---
+
+<section class="hero">
+  <div class="hero__inner">
+    <picture class="hero__background" aria-hidden="true">
+      <img src="/images/hero.jpg" alt="" />
+    </picture>
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="color-gradient-blue"
+          >Мобильный доступ к<br />
+          корпоративным процессам
+        </span><br />на защищённой платформе
+      </h1>
+      <p class="hero__paragraph">
+        МП СЭД — корпоративное мобильное решение для безопасной работы с
+        документами, <br /> поручениями и управленческими процессами на ОС «Аврора»
+      </p>
+    </div>
+
+    <footer class="hero__footer">
+      <div class="actions">
+        <Button variant="contained">Запросить демонстрацию</Button>
+        <Button variant="outlined">Получить презентацию</Button>
+      </div>
+      <ul class="card-wrapper">
+        {
+          cards.map(({ name, text, icon }) => (
+            <li>
+              <Card name={name} text={text} icon={icon} />
+            </li>
+          ))
+        }
+      </ul>
+    </footer>
+  </div>
+
+  <style>
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: calc(100vh - var(--header-height));
+      display: flex;
+      overflow: hidden;
+      max-width: none;
+    }
+
+    .hero__background {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .hero__inner {
+      width: 100%;
+      max-width: 1520px;
+      margin: 0 auto;
+      padding: 20vh 0 10vh;
+      position: relative;
+      z-index: 3;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero__content {
+      z-index: 1;
+    }
+
+    .hero__title {
+      margin-bottom: 40px;
+    }
+
+    .hero__paragraph {
+      color: var(--text-color-secondary);
+    }
+
+    .hero__footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      row-gap: 64px;
+      align-items: flex-start;
+      z-index: 1;
+    }
+
+    .card-wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .actions {
+      display: flex;
+      gap: 16px;
+    }
+  </style>
+</section>
