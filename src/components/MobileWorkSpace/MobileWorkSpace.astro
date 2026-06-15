@@ -156,8 +156,9 @@ const tabs = [
 
           panels.forEach((panel) => {
             const isActive = panel.getAttribute("data-tab-panel") === activeTab;
+
             panel.classList.toggle("is-active", isActive);
-            panel.setAttribute("aria-hidden", String(!isActive));
+            panel.hidden = !isActive;
           });
         });
       });
@@ -322,10 +323,6 @@ const tabs = [
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
-    }
-
-    .content[hidden] {
-      display: flex;
     }
 
     .point {
