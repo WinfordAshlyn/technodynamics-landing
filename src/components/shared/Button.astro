@@ -1,7 +1,9 @@
 ---
 interface Props {
   onClick?: () => void;
-  type?: ButtonHTMLAttributes["type"];
+  type?: "button" | "submit" | "reset";
+  href?: string;
+  download?: string | boolean;
   class?: string;
   variant?: "contained" | "outlined" | "text";
 }
@@ -9,56 +11,72 @@ interface Props {
 const {
   onClick,
   type = "button",
+  href,
+  download,
   class: buttonClass,
   variant = "contained",
 } = Astro.props;
 ---
 
-<button
-  onClick={onClick}
-  type={type}
-  class:list={["button", variant, buttonClass]}
->
-  <slot />
+{
+  href !== undefined ? (
+    <a href={href} download={download} class:list={["button", variant, buttonClass]}>
+      <slot />
+    </a>
+  ) : (
+    <button
+      onClick={onClick}
+      type={type}
+      class:list={["button", variant, buttonClass]}
+    >
+      <slot />
+    </button>
+  )
+}
 
-  <style>
-    .button {
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 1.3;
-      padding: 12px 0;
-      border-radius: 100px;
-      width: 286px;
-      border: 1px solid transparent;
-      box-sizing: border-box;
-    }
+<style>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.3;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 12px 0;
+    border-radius: 100px;
+    width: 286px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+  }
 
-    .contained {
-      color: var(--text-color-primary);
-      background: linear-gradient(90deg, #3f8cff 0%, #4639fe 100%);
-      border: none;
-    }
+  .contained {
+    color: var(--text-color-primary);
+    background: linear-gradient(90deg, #3f8cff 0%, #4639fe 100%);
+    border: none;
+  }
 
-    .contained:hover {
-      background: #4639fe;
-    }
+  .contained:hover {
+    background: #4639fe;
+  }
 
-    .outlined {
-      color: var(--text-color-accent-blue);
-      background:
-        linear-gradient(#000f26b2, #000f26b2) padding-box,
-        linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
-        linear-gradient(90deg, #3d80ff 0%, #003dbe 100%) border-box;
-    }
+  .outlined {
+    color: var(--text-color-accent-blue);
+    background:
+      linear-gradient(#000f26b2, #000f26b2) padding-box,
+      linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
+      linear-gradient(90deg, #3d80ff 0%, #003dbe 100%) border-box;
+  }
 
-    .outlined:hover {
-      color: var(--text-color-accent-blue-hover);
-      padding: 11px 0;
-      border-width: 2px;
-      background:
-        linear-gradient(#000f26b2, #000f26b2) padding-box,
-        linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
-        linear-gradient(90deg, #3d80ff 0%, #003dbe 100%) border-box;
-    }
-  </style>
-</button>
+  .outlined:hover {
+    color: var(--text-color-accent-blue-hover);
+    padding: 11px 0;
+    border-width: 2px;
+    background:
+      linear-gradient(#000f26b2, #000f26b2) padding-box,
+      linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
+      linear-gradient(90deg, #3d80ff 0%, #003dbe 100%) border-box;
+  }
+</style>

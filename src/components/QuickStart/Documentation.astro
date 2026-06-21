@@ -1,0 +1,116 @@
+---
+const links = [
+  {
+    title:
+      "Свидетельство о государственной регистрации\nпрограммы для ЭВМ в Федеральной службе по\nинтеллектуальной собственности ",
+    href: "",
+  },
+  {
+    title: "Функциональное описание",
+    href: "",
+  },
+  {
+    title: "Архитектура решения",
+    href: "",
+  },
+];
+---
+
+<div class="container">
+  <div class="left-column">
+    <h3 class="title" id="documentation">Документация</h3>
+    <ul class="list">
+      {
+        links.map(({ title, href }) => {
+          return (
+            <li>
+              <a href={href} class="link">
+                {title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+  <div class="right-column">
+    <img src="/images/quickStart/documentation.webp" alt="">
+  </div>
+
+  <style>
+    .container {
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      background:
+        linear-gradient(180deg, #09154566 40%, #010619 100%) padding-box,
+        linear-gradient(#010619, #010619) padding-box,
+        linear-gradient(
+            90deg,
+            #0036a8 0%,
+            #001020 14.29%,
+            #0052ff 28.57%,
+            #769fff 42.86%,
+            #0c41b4 57.14%,
+            #0052ff 71.43%,
+            #0649d8 85.71%,
+            #0c41b4 100%
+          )
+          border-box;
+    }
+
+    .left-column {
+      flex: 1 1 auto;
+      min-width: 428px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 32px;
+      padding: 40px 0px 40px 40px;
+    }
+
+    .right-column {
+      flex: 0 0 701px;
+      min-width: 701px;
+      display: flex;
+    }
+
+    .right-column img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .link {
+      color: var(--text-color-secondary);
+      line-height: 1.3;
+      font-weight: 500;
+    }
+
+    .list > li {
+      display: flex;
+      align-items: flex-start;
+      column-gap: 16px;
+    }
+
+    .list > li::before {
+      content: "";
+      flex: 0 0 20px;
+      width: 20px;
+      height: 20px;
+      background-image: url("/icons/point.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      max-width: 428px;
+    }
+  </style>
+</div>

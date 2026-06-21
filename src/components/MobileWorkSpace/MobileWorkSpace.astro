@@ -2,7 +2,7 @@
 const tabs = [
   {
     name: "Весь документооборот",
-    image: "/images/mobileWorkSpace/tab1.png",
+    image: "/images/mobileWorkSpace/tab1.webp",
     title: "Привычная работа с документами — теперь на мобильных устройствах",
     points: [
       "Работайте с документами и задачами даже без подключения к сети",
@@ -19,7 +19,7 @@ const tabs = [
   },
   {
     name: "Рабочее пространство",
-    image: "/images/mobileWorkSpace/tab2.png",
+    image: "/images/mobileWorkSpace/tab2.webp",
     title: "Гибкие настройки и персонализация под ваши задачи",
     points: [
       "Отслеживайте эффективность выполнения задач",
@@ -30,7 +30,7 @@ const tabs = [
   },
   {
     name: "Поручения",
-    image: "/images/mobileWorkSpace/tab3.png",
+    image: "/images/mobileWorkSpace/tab3.webp",
     title: "Максимум продуктивности – независимо от времени и места",
     points: [
       "Ставьте подзадачи и назначайте ответственных",
@@ -41,7 +41,7 @@ const tabs = [
   },
   {
     name: "Согласования",
-    image: "/images/mobileWorkSpace/tab4.png",
+    image: "/images/mobileWorkSpace/tab4.webp",
     title: "Следите за статусом задач и быстро находите нужное",
     points: [
       "Используйте навигацию по подзадачам с помощью дерева поручений",
@@ -53,7 +53,7 @@ const tabs = [
 ---
 
 <section class="section" data-mobile-workspace>
-  <h2 class="title" id="workSpace">
+  <h2 class="title" id="space">
     <span class="color-gradient-blue">Мобильное</span> рабочее<br />пространство
   </h2>
 
@@ -126,7 +126,7 @@ const tabs = [
 
     <div class="background-image-container">
       <img
-        src="/images/background.jpg"
+        src="/images/background.webp"
         alt=""
         class="background-image"
         loading="lazy"
@@ -139,9 +139,10 @@ const tabs = [
     const workspaces = document.querySelectorAll("[data-mobile-workspace]");
 
     workspaces.forEach((workspace) => {
-      const buttons = workspace.querySelectorAll("[data-tab-button]");
-      const panels = workspace.querySelectorAll("[data-tab-panel]");
-
+      const buttons =
+        workspace.querySelectorAll<HTMLButtonElement>("[data-tab-button]");
+      const panels =
+        workspace.querySelectorAll<HTMLElement>("[data-tab-panel]");
       buttons.forEach((button) => {
         button.addEventListener("click", () => {
           const activeTab = button.getAttribute("data-tab-button");

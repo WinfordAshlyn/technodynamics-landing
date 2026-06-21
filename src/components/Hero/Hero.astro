@@ -34,7 +34,12 @@ const cards = [
 <section class="hero">
   <div class="hero__inner">
     <picture class="hero__background" aria-hidden="true">
-      <img src="/images/hero.jpg" alt="" />
+      <img
+        src="/images/hero.webp"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+      />
     </picture>
     <div class="hero__content">
       <h1 class="hero__title">
@@ -51,8 +56,11 @@ const cards = [
 
     <footer class="hero__footer">
       <div class="actions">
-        <Button variant="contained">Запросить демонстрацию</Button>
-        <Button variant="outlined">Получить презентацию</Button>
+        <Button href="" variant="contained" download
+          >Запросить демонстрацию</Button
+        >
+        <Button href="" variant="outlined" download>Получить презентацию</Button
+        >
       </div>
       <ul class="card-wrapper">
         {
