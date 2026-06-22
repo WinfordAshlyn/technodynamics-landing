@@ -19,4 +19,12 @@ import QuickStart from "../components/QuickStart/QuickStart.astro";
     <QuickStart />
   </main>
   <Footer />
+
+  <script>
+    document.addEventListener("dragstart", (event) => {
+      if (event.target instanceof HTMLImageElement) {
+        event.preventDefault();
+      }
+    });
+  </script>
 </Layout>
